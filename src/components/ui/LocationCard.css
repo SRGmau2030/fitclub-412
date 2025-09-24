@@ -1,0 +1,107 @@
+.location-card {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: clamp(1.5rem, 4vw, 2rem);
+  border-radius: 15px;
+  border: 1px solid rgba(169, 255, 0, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.location-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-lime);
+}
+
+.location-icon {
+  color: var(--color-lime);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  min-width: clamp(1.5rem, 4vw, 2rem);
+  text-shadow: 0 0 10px var(--color-lime);
+  flex-shrink: 0;
+}
+
+.location-details h3 {
+  color: var(--color-lime);
+  margin-bottom: clamp(0.5rem, 2vw, 0.8rem);
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  font-family: var(--font-ethnocentric);
+  font-weight: 900;
+  text-shadow: 
+    0 0 8px var(--color-lime),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  line-height: 1.2;
+}
+
+.location-details p {
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+/* Optimizaciones para móviles */
+@media (max-width: 768px) {
+  .location-card {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+  
+  .location-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .location-icon {
+    font-size: clamp(1.3rem, 5vw, 1.6rem);
+    min-width: clamp(1.3rem, 5vw, 1.6rem);
+  }
+  
+  .location-details h3 {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    margin-bottom: 0.6rem;
+  }
+  
+  .location-details p {
+    font-size: clamp(0.85rem, 3.5vw, 0.95rem);
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .location-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    border-radius: 12px;
+  }
+
+  .location-icon {
+    align-self: center;
+    font-size: clamp(1.2rem, 6vw, 1.5rem);
+    min-width: auto;
+  }
+  
+  .location-details h3 {
+    font-size: clamp(0.95rem, 5vw, 1.1rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  .location-details p {
+    font-size: clamp(0.8rem, 4vw, 0.9rem);
+  }
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .location-card:hover {
+    transform: none;
+  }
+  
+  .location-card:active {
+    transform: scale(0.98);
+    border-color: var(--color-lime);
+  }
+}

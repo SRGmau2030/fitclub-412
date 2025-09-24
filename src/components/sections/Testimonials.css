@@ -1,0 +1,25 @@
+.testimonials {
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Optimizaciones para móviles */
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-grid {
+    gap: 1.2rem;
+  }
+}

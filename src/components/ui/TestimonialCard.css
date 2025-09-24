@@ -1,0 +1,106 @@
+.testimonial-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border-radius: 20px;
+  position: relative;
+  border: 1px solid rgba(169, 255, 0, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(169, 255, 0, 0.3);
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: clamp(0.8rem, 3vw, 1rem);
+  left: clamp(0.8rem, 3vw, 1rem);
+  font-size: clamp(3rem, 8vw, 4rem);
+  color: var(--color-lime);
+  opacity: 0.2;
+  line-height: 1;
+}
+
+.testimonial-card p {
+  font-size: clamp(0.95rem, 3vw, 1.2rem);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  padding-top: clamp(1rem, 3vw, 1.5rem);
+}
+
+.testimonial-card h4 {
+  color: var(--color-lime);
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  font-family: var(--font-ethnocentric);
+  font-weight: 900;
+  text-shadow: 
+    0 0 8px var(--color-lime),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  line-height: 1.2;
+}
+
+/* Optimizaciones para móviles */
+@media (max-width: 768px) {
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .testimonial-card::before {
+    font-size: clamp(2.5rem, 10vw, 3rem);
+    top: 0.8rem;
+    left: 0.8rem;
+  }
+  
+  .testimonial-card p {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+    line-height: 1.7;
+    padding-top: 1rem;
+  }
+  
+  .testimonial-card h4 {
+    font-size: clamp(0.95rem, 4vw, 1.1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    padding: 1.2rem;
+    border-radius: 15px;
+  }
+  
+  .testimonial-card::before {
+    font-size: clamp(2rem, 12vw, 2.5rem);
+    top: 0.6rem;
+    left: 0.6rem;
+  }
+  
+  .testimonial-card p {
+    font-size: clamp(0.85rem, 4.5vw, 0.95rem);
+    padding-top: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial-card h4 {
+    font-size: clamp(0.9rem, 4.5vw, 1rem);
+  }
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .testimonial-card:hover {
+    transform: none;
+  }
+  
+  .testimonial-card:active {
+    transform: scale(0.98);
+    border-color: rgba(169, 255, 0, 0.3);
+  }
+}

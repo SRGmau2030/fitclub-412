@@ -1,0 +1,158 @@
+.location {
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+.location-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3rem);
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 2rem);
+}
+
+.location-directions {
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.directions-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-lime);
+  color: var(--color-black);
+  padding: clamp(0.9rem, 3vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--color-lime);
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+  min-height: 44px;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.directions-button:hover, .directions-button:focus {
+  background-color: transparent;
+  color: var(--color-lime);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(169, 255, 0, 0.3);
+  outline: none;
+}
+
+.location-map {
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid rgba(169, 255, 0, 0.1);
+  transition: border-color 0.3s ease;
+  position: relative;
+  width: 100%;
+  height: clamp(350px, 40vw, 500px);
+}
+
+.location-map:hover {
+  border-color: var(--color-lime);
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 13px;
+  display: block;
+}
+
+/* Optimizaciones para móviles */
+@media (max-width: 768px) {
+  .location-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .location-map {
+    height: clamp(250px, 50vw, 300px);
+    border-radius: 12px;
+  }
+  
+  .location-map iframe {
+    border-radius: 10px;
+  }
+  
+  .directions-button {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .location-container {
+    gap: 1.5rem;
+  }
+  
+  .location-map {
+    height: clamp(200px, 60vw, 250px);
+    border-radius: 10px;
+  }
+  
+  .location-map iframe {
+    border-radius: 8px;
+  }
+  
+  .directions-button {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.85rem;
+    gap: 0.4rem;
+  }
+}
+
+/* Estilos específicos para vista de escritorio */
+@media (min-width: 769px) {
+  .location-container {
+    grid-template-columns: 400px 1fr;
+    gap: 3rem;
+  }
+  
+  .location-map {
+    height: 500px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .location-container {
+    grid-template-columns: 450px 1fr;
+    gap: 4rem;
+  }
+  
+  .location-map {
+    height: 550px;
+  }
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .directions-button:hover {
+    transform: none;
+  }
+  
+  .directions-button:active {
+    transform: scale(0.98);
+    background-color: transparent;
+    color: var(--color-lime);
+  }
+  
+  .location-map:hover {
+    border-color: rgba(169, 255, 0, 0.1);
+  }
+}

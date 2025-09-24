@@ -1,0 +1,26 @@
+.pricing {
+  background-color: var(--color-black);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Optimizaciones para móviles */
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}

@@ -1,0 +1,27 @@
+.about {
+  background-color: var(--color-black);
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Optimizaciones para móviles */
+@media (max-width: 768px) {
+  .about-content {
+    font-size: clamp(0.95rem, 4vw, 1.1rem);
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content {
+    font-size: clamp(0.9rem, 4.5vw, 1rem);
+    line-height: 1.8;
+  }
+}

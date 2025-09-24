@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Exo+2:wght@400;700;900&display=swap');
+
+:root {
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-lime: rgb(169, 255, 0);
+  --transition: all 0.3s ease;
+  --font-ethnocentric: 'Exo 2', 'Rajdhani', 'Orbitron', monospace;
+  --font-neuropol: 'Exo 2', 'Rajdhani', 'Orbitron', monospace;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--color-white);
+  background-color: var(--color-black);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-ethnocentric);
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: clamp(1px, 0.5vw, 3px);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Estilo especial para números en títulos */
+h1 .number, h2 .number, h3 .number, h4 .number, h5 .number, h6 .number,
+.nav-logo .number {
+  font-family: var(--font-neuropol);
+  font-weight: 900;
+  color: var(--color-lime);
+  text-shadow: 
+    0 0 10px var(--color-lime),
+    0 0 20px var(--color-lime),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+  display: inline-block;
+  transform: scaleY(1.1);
+}
+
+a {
+  color: var(--color-lime);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--color-white);
+}
+
+button {
+  border: 2px solid var(--color-lime);
+  padding: clamp(0.8rem, 3vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  font-weight: 600;
+  background-color: transparent;
+  color: var(--color-lime);
+  cursor: pointer;
+  transition: var(--transition);
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  min-height: 44px; /* Tamaño mínimo táctil recomendado */
+  touch-action: manipulation; /* Mejora la respuesta táctil */
+}
+
+button:hover, button:focus {
+  background-color: var(--color-lime);
+  color: var(--color-black);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Mejoras para navegación móvil */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-lime);
+  padding: clamp(0.8rem, 3vw, 1rem) clamp(1rem, 4vw, 2rem);
+  z-index: 1000;
+  transition: var(--transition);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  color: var(--color-black);
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-weight: 900;
+  font-family: var(--font-ethnocentric);
+  text-transform: uppercase;
+  letter-spacing: clamp(1px, 0.5vw, 2px);
+}
+
+.nav-logo .number {
+  color: var(--color-black);
+  text-shadow: none;
+  font-weight: 900;
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2rem);
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--color-black);
+  font-weight: 600;
+  transition: var(--transition);
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: var(--color-white);
+  background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-black);
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  cursor: pointer;
+  padding: 0.5rem;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.nav-toggle:hover, .nav-toggle:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+/* Optimizaciones específicas para móviles */
+@media (max-width: 768px) {
+  .nav {
+    padding: 0.8rem 1rem;
+  }
+  
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-lime);
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 15px 15px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  button {
+    font-size: 0.9rem;
+    padding: 0.9rem 1.5rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 0.7rem 0.75rem;
+  }
+  
+  .nav-logo {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+  
+  .nav-links {
+    padding: 0.75rem;
+    gap: 0.25rem;
+  }
+  
+  .nav-link {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+  
+  button {
+    font-size: 0.85rem;
+    padding: 0.8rem 1.2rem;
+    letter-spacing: 0.3px;
+  }
+}
+
+/* Mejoras para accesibilidad táctil */
+@media (hover: none) and (pointer: coarse) {
+  button:hover {
+    transform: none;
+  }
+  
+  button:active {
+    background-color: var(--color-lime);
+    color: var(--color-black);
+    transform: scale(0.98);
+  }
+  
+  .nav-link:hover {
+    background-color: transparent;
+  }
+  
+  .nav-link:active {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
